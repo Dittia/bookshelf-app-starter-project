@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", monospace;
+  background-color: #ffffff;
+  color: #000;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #b3e5fc;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-bottom: 8px solid #000;
+}
+
+header h1 {
+  color: #000;
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+section {
+  background-color: #ffffff;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border: 5px solid #000;
+}
+
+section h2 {
+  color: #000;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #b3e5fc;
+  padding-bottom: 1rem;
+}
+
+/* Form Styles */
+form {
+  margin-bottom: 1rem;
+}
+
+form > div {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: #000;
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 1rem;
+  border: 3px solid #000;
+  background-color: #ffffff;
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  background-color: #b3e5fc;
+  border: 3px solid #000;
+}
+
+input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: #000;
+  border: 2px solid #000;
+}
+
+button {
+  padding: 1rem 1.5rem;
+  background-color: #b3e5fc;
+  color: #000;
+  border: 4px solid #000;
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.1s;
+}
+
+button:hover {
+  background-color: #000;
+  color: #b3e5fc;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: translate(0, 0);
+  box-shadow: none;
+}
+
+#bookFormSubmit {
+  background-color: #000;
+  color: #ffffff;
+  align-self: flex-start;
+}
+
+#bookFormSubmit:hover {
+  background-color: #b3e5fc;
+  color: #000;
+}
+
+#searchSubmit {
+  align-self: flex-start;
+}
+
+/* Book List Styles */
+#incompleteBookList,
+#completeBookList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+[data-testid="bookItem"] {
+  background-color: #ffffff;
+  border: 5px solid #000;
+  padding: 1.5rem;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.1s;
+}
+
+[data-testid="bookItem"]:hover {
+  box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.2);
+  transform: translate(-2px, -2px);
+}
+
+[data-testid="bookItemTitle"] {
+  color: #000;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #b3e5fc;
+  padding-bottom: 0.5rem;
+}
+
+[data-testid="bookItemAuthor"],
+[data-testid="bookItemYear"] {
+  color: #000;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+  font-family: "Courier New", monospace;
+}
+
+[data-testid="bookItem"] > div {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+[data-testid="bookItem"] button {
+  flex: 1;
+  min-width: 80px;
+  padding: 0.75rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+[data-testid="bookItemIsCompleteButton"] {
+  background-color: #b3e5fc;
+  color: #000;
+}
+
+[data-testid="bookItemIsCompleteButton"]:hover {
+  background-color: #000;
+  color: #b3e5fc;
+}
+
+[data-testid="bookItemDeleteButton"] {
+  background-color: #000000;
+  color: #ff0000;
+}
+
+[data-testid="bookItemDeleteButton"]:hover {
+  background-color: #ff0000;
+  color: #000;
+}
+
+[data-testid="bookItemEditButton"] {
+  background-color: #b3e5fc;
+  color: #000;
+}
+
+[data-testid="bookItemEditButton"]:hover {
+  background-color: #000;
+  color: #b3e5fc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  section {
+    padding: 1rem;
+    border-width: 4px;
+  }
+
+  #incompleteBookList,
+  #completeBookList {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  [data-testid="bookItem"] {
+    border-width: 4px;
+    padding: 1rem;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  [data-testid="bookItem"] > div {
+    flex-direction: column;
+  }
+
+  [data-testid="bookItem"] button {
+    width: 100%;
+  }
+}
